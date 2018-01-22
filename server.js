@@ -8,11 +8,12 @@ var app = express();
 app.use(express.static('www'));
 app.use(express.static(path.join('www', 'build')));
 
+
 app.use(bodyParser.json());
 
 
 var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/dreamhouse';
-
+var i2;
 if (process.env.DATABASE_URL !== undefined) {
   pg.defaults.ssl = true;
 }
